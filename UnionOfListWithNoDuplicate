@@ -1,0 +1,17 @@
+public static <T> List<T> removeCommonValuesFromTwoLists(List<T> listOne, List<T> listTwo) {
+
+		if (listOne == null && listTwo == null) {
+			return null;
+		} else if (listOne == null && listTwo != null) {
+			return listTwo;
+		} else if (listTwo == null && listOne != null) {
+			return listOne;
+		} else {
+			List<T> unionList = new ArrayList<T>(listOne);
+			unionList.addAll(listTwo);
+			List<T> interSectionList = new ArrayList<T>(listOne);
+			interSectionList.retainAll(listTwo);
+			unionList.removeAll(interSectionList);
+			return unionList;
+		}
+	} 
